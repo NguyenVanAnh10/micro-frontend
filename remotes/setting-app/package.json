@@ -1,0 +1,19 @@
+{
+  "name": "setting-app",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "@module-federation/enhanced": "^0.6.6",
+    "ant-design-vue": "4.x",
+    "vue": "^3.5.3"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^1.0.1",
+    "@rsbuild/plugin-vue": "^1.0.1"
+  }
+}
