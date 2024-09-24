@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
-import { Button } from "@carbon/react";
 // import "./globals.scss";
 
 const App = ({ options }) => {
@@ -143,7 +142,6 @@ const App = ({ options }) => {
 
   return (
     <div className="content">
-      <Button>Button</Button>
       <HighchartsReact
         constructorType={"stockChart"}
         highcharts={Highcharts}

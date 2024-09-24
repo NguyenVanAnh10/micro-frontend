@@ -10,6 +10,9 @@ export default defineConfig({
   },
   tools: {
     rspack: {
+      resolve: {
+        extensions: ['.scss', '.css']
+      },
       plugins: [
         new ModuleFederationPlugin({
           name: 'federation_consumer',
