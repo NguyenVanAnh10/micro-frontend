@@ -1,9 +1,17 @@
-import React, { useEffect, useState } from "react";
-import Highcharts from "highcharts/highstock";
-import HighchartsReact from "highcharts-react-official";
+import React, { useContext, useEffect, useState } from "react";
+import {
+  Card,
+  FluentProvider,
+  Text,
+  webDarkTheme,
+  webLightTheme,
+} from "@fluentui/react-components";
+import DarkChart from "./Chart/DarkChart";
+import LightChart from "./Chart/LightChart";
+import { Typography } from "@mui/joy";
 // import "./globals.scss";
 
-const App = ({ options }) => {
+const App = ({ options, mode }) => {
   console.log(options);
 
   const groupingUnits = [
@@ -141,14 +149,26 @@ const App = ({ options }) => {
   };
 
   return (
-    <div className="content">
-      <HighchartsReact
-        constructorType={"stockChart"}
-        highcharts={Highcharts}
-        options={optionsChart}
-      />
-    </div>
+    <Card className="content">
+      <Text as="h1" color="red" style={{ fontSize: 24, color: "red" }}>
+        Micro App
+      </Text>
+      {mode == "dark" ? (
+        <DarkChart optionsChart={optionsChart} />
+      ) : (
+        <LightChart optionsChart={optionsChart} />
+      )}
+    </Card>
   );
 };
 
-export default App;
+const AppComponent = ({ ...props }) => {
+  const { mode } = props;
+  console.log("remote", { mode });
+  return (
+    <FluentProvider theme={mode == "light" ? webLightTheme : webDarkTheme}>
+      <App {...props} />
+    </FluentProvider>
+  );
+};
+export default AppComponent;

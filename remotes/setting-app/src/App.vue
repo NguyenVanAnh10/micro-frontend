@@ -1,5 +1,5 @@
 <template>
-  <a-card>
+  <a-card :class="{ 'dark-theme': mode === 'dark' }" :style="{ backgroundColor: mode === 'dark' ? '#141414' : '#fff' }">
     <a-typography-title :level="3" type="danger">Micro App</a-typography-title>
     <a-form ref="formRef" :model="formState" :rules="rules" :label-col="labelCol" :wrapper-col="wrapperCol">
       <a-form-item ref="chartTitle" label="Activity chartTitle" name="chartTitle">
@@ -18,6 +18,15 @@
     </a-form>
   </a-card>
 </template>
+<style>
+.dark-theme label {
+  color: #fff !important;
+}
+
+.dark-theme {
+  border: 1px solid #3d3b3b !important;
+}
+</style>
 <script setup>
 import { reactive, ref, toRaw } from "vue";
 const formRef = ref();
@@ -43,7 +52,14 @@ const props = defineProps({
     type: Function,
     required: true,
   },
+  mode: {
+    type: String,
+    required: true
+  }
 });
+const { mode } = props;
+console.log('vue', { mode });
+
 const onSubmit = () => {
   formRef.value
     .validate()

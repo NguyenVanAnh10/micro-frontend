@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@carbon/react": "1.33.0",
+    "@fluentui/react-components": "^9.54.16",
     "@module-federation/enhanced": "^0.6.6",
     "highcharts": "^11.4.8",
     "highcharts-react-official": "^3.2.1",
